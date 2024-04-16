@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "todo-flask"
+version = "0.1.0"
+description = ""
+authors = ["danalmeidap <dbatistadealmeida23@gmail.com >"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.0.3"
+flask-pymongo = "^2.3.0"
+dynaconf = "^3.2.5"
+flask-bootstrap = "^3.3.7.1"
+mistune = "^3.0.2"
+flask-simplelogin = "^0.1.2"
+flask-admin = "^1.6.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
