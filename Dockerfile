@@ -1,4 +1,4 @@
-FROM python:3.11-slim-buster
+FROM python:3.12
 
 ENV PYTHONUNBUFFERED 1
 ENV PATH="/root/.local/bin:$PATH"
@@ -13,5 +13,7 @@ RUN apt-get update -y && apt-get install curl -y \
 && poetry install \
 && apt-get remove curl -y
 
-COPY ./app /app
+COPY ./app/ app
 WORKDIR /app
+
+ 

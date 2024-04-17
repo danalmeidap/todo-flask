@@ -8,12 +8,14 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 flask = "^3.0.3"
-flask-pymongo = "^2.3.0"
-dynaconf = "^3.2.5"
-flask-bootstrap = "^3.3.7.1"
 mistune = "^3.0.2"
-flask-simplelogin = "^0.1.2"
+flask-shell-ipython = "^0.5.1"
+black = "^24.4.0"
+flask-bootstrap = "^3.3.7.1"
+dynaconf = "^3.2.5"
 flask-admin = "^1.6.1"
+flask-simplelogin = "^0.1.2"
+flask-pymongo = "^2.3.0"
 
 
 [build-system]

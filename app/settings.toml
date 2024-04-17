@@ -1,0 +1,7 @@
+[default]
+mongo_uri= "mongodb://localhost:27017/todo"
+mongo_dbname= "tasks"
+title = "TODO"
+extensions= [
+    "app.database:configure"
+]
