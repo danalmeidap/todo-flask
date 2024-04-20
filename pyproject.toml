@@ -16,6 +16,7 @@ dynaconf = "^3.2.5"
 flask-admin = "^1.6.1"
 flask-simplelogin = "^0.1.2"
 flask-pymongo = "^2.3.0"
+rich = "^13.7.1"
 
 
 [build-system]
