@@ -5,4 +5,7 @@ title = "TODO"
 extensions= [
     "app.database:configure",
     "app.commands:configure",
+    "flask_bootstrap:Bootstrap",
+    "app.views:configure",
+    "app.plugins:configure",
 ]
