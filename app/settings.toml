@@ -9,5 +9,6 @@ extensions= [
     "flask_bootstrap:Bootstrap",
     "app.views:configure",
     "app.plugins:configure",
-    "app.auth:configure"
+    "app.auth:configure",
+    "app.admin:configure"
 ]
