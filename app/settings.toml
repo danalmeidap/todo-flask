@@ -1,4 +1,5 @@
 [default]
+secret_key= "5adc2c4ee71d826c2237e3d25619ed24b3719c764fea276d93391e50599e9523"
 mongo_uri= "mongodb://localhost:27017/todo"
 mongo_dbname= "tasks"
 title = "TODO"
@@ -8,4 +9,5 @@ extensions= [
     "flask_bootstrap:Bootstrap",
     "app.views:configure",
     "app.plugins:configure",
+    "app.auth:configure"
 ]

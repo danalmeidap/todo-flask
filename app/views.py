@@ -14,6 +14,8 @@ from app.tasks import (
     new_task
 )
 
+from flask_simplelogin import login_required
+
 bp = Blueprint("task", __name__, template_folder="templates")
 
 
@@ -38,6 +40,7 @@ def user(user):
 
 
 @bp.route("/new", methods=["GET", "POST"])
+@login_required()
 def new():
     if request.method == "POST":
         user = request.form.get("user")
