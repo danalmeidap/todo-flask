@@ -1,20 +1,12 @@
-from flask import (
-    Blueprint,
-    render_template,
-    abort,
-    request,
-    url_for,
-    redirect,
-)
+from flask import Blueprint, abort, redirect, render_template, request, url_for
+from flask_simplelogin import login_required
 
 from app.tasks import (
     get_all_tasks,
     get_task_by_slug,
     get_tasks_by_user,
-    new_task
+    new_task,
 )
-
-from flask_simplelogin import login_required
 
 bp = Blueprint("task", __name__, template_folder="templates")
 
@@ -35,7 +27,7 @@ def detail(slug):
 
 @bp.route("/user/<user>")
 def user(user):
-    tasks= get_tasks_by_user(user)
+    tasks = get_tasks_by_user(user)
     return render_template("index.html.j2", tasks=tasks)
 
 
@@ -45,8 +37,8 @@ def new():
     if request.method == "POST":
         user = request.form.get("user")
         title = request.form.get("title")
-        content= request.form.get("content")
-        slug= new_task(user, title, content)
+        content = request.form.get("content")
+        slug = new_task(user, title, content)
         return redirect(url_for("task.detail", slug=slug))
     return render_template("form.html.j2")
 

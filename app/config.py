@@ -1,4 +1,5 @@
 import os
+
 from dynaconf import FlaskDynaconf
 
 HERE = os.path.dirname(os.path.abspath(__file__))

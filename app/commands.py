@@ -1,11 +1,12 @@
 import click
-from app.tasks import (get_all_tasks,
-                        get_task_by_slug, 
-                        get_tasks_by_user,
-                          new_task,
-                          update_task_by_slug)
 from flask import Flask
 
+from app.tasks import (
+    get_all_tasks,
+    get_task_by_slug,
+    get_tasks_by_user,
+    new_task
+)
 
 
 @click.group()
@@ -46,6 +47,5 @@ def tasks(user):
         click.echo(task)
 
 
-
-def configure(app:Flask):
+def configure(app: Flask):
     app.cli.add_command(task)
