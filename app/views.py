@@ -6,6 +6,7 @@ from app.tasks import (
     get_task_by_slug,
     get_tasks_by_user,
     new_task,
+    delete_task_by_slug
 )
 
 bp = Blueprint("task", __name__, template_folder="templates")
@@ -21,7 +22,7 @@ def index():
 def detail(slug):
     task = get_task_by_slug(slug)
     if not task:
-        return abort(404, "Post Not Found")
+        return abort(404, "Task Not Found")
     return render_template("task.html.j2", task=task)
 
 
@@ -42,6 +43,12 @@ def new():
         return redirect(url_for("task.detail", slug=slug))
     return render_template("form.html.j2")
 
+
+@bp.route("/tasks/delete/<slug>", methods=["GET","POST","DELETE"])
+def delete(slug):
+    if delete_task_by_slug(slug):
+        return {"msg":"Task deleted"}
+    return abort(404, "Task not found")
 
 def configure(app):
     app.register_blueprint(bp)

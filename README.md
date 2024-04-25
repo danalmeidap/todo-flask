@@ -17,7 +17,7 @@
 - [x] Lists tasks 
 - [x] Get task by id
 - [x] Get tasks by user
-- [x] Add a task using cli
+- [x] Add, list, update and delete a task using cli
 - [x] Only authenticated users can add tasks
 
 ## How to use
@@ -28,7 +28,7 @@
 
 ### Run the docker-compose.yml using
 
-    '''docker-compose up'''
+    '''docker-compose up -d'''
 
 ### Go to app folder and uses for localhost operations
 
