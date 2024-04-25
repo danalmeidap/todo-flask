@@ -7,13 +7,14 @@ from app.tasks import (
     get_task_by_slug,
     get_tasks_by_user,
     new_task,
-    update_task_by_slug
+    update_task_by_slug,
+    delete_task_by_slug
 )
 
 
 @click.group()
 def task():
-    """Manage posts"""
+    """Manage tasks"""
 
 
 @task.command("list")
@@ -54,7 +55,7 @@ def tasks(user):
 @click.option("--title")
 @click.option("--content")
 def update(slug, title, content):
-    """Selec a task and update"""
+    """Select a task and update"""
     task = get_task_by_slug(slug)
     if task:
         data = {
@@ -69,6 +70,16 @@ def update(slug, title, content):
         click.echo(f"Task {updated['slug']} updated")
     else:
         click.echo("Task not found")
+
+
+@task.command()
+@click.option("--slug")
+def delete(slug):
+    """Select a task and delete"""
+    if delete_task_by_slug(slug):
+        click.echo("Task was deleted")
+    else:
+        click.echo("task already deleted or doesn't exist")
 
 
 def configure(app: Flask):

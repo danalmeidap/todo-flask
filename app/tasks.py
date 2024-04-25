@@ -29,8 +29,8 @@ def update_task_by_slug(slug: str, data) -> str:
 def delete_task_by_slug(slug:str):
     task= get_task_by_slug(slug)
     if task:
-        task['active']= False
-        return True
+            mongo.db.tasks.find_one_and_delete({"slug":slug})
+            return True
     return False
 
 
