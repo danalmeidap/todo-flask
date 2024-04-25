@@ -1,11 +1,13 @@
 import click
 from flask import Flask
+from datetime import datetime
 
 from app.tasks import (
     get_all_tasks,
     get_task_by_slug,
     get_tasks_by_user,
-    new_task
+    new_task,
+    update_task_by_slug
 )
 
 
@@ -45,6 +47,28 @@ def tasks(user):
     """Get user tasks"""
     for task in get_tasks_by_user(user):
         click.echo(task)
+
+
+@task.command()
+@click.option("--slug")
+@click.option("--title")
+@click.option("--content")
+def update(slug, title, content):
+    """Selec a task and update"""
+    task = get_task_by_slug(slug)
+    if task:
+        data = {
+            "user": task['user'],
+            "title": title,
+            "content": content,
+            "slug": title.replace("_", "-").replace(" ", "-").lower(),
+            "active":True,
+            "date": datetime.now()            
+        }
+        updated = update_task_by_slug(slug, data)
+        click.echo(f"Task {updated['slug']} updated")
+    else:
+        click.echo("Task not found")
 
 
 def configure(app: Flask):

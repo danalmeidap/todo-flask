@@ -20,17 +20,25 @@ def get_task_by_slug(slug: str) -> dict:
     return task
 
 
-def update_task_by_slug(user: str, slug: str, data) -> str:
+def update_task_by_slug(slug: str, data) -> str:
     return mongo.db.tasks.find_one_and_update(
-        {"user": user}, {"slug": slug}, {"$set": data}
+        {"slug": slug}, {"$set": data}
     )
+
+
+def delete_task_by_slug(slug:str):
+    task= get_task_by_slug(slug)
+    if task:
+        task['active']= False
+        return True
+    return False
 
 
 def new_task(user: str, title: str, content: str, active: bool = True) -> str:
     slug = title.replace("_", "-").replace(" ", "-").lower()
     new = mongo.db.tasks.insert_one(
         {
-            "user": user,
+            "user": user.strip(),
             "title": title,
             "content": content,
             "slug": slug,
@@ -38,4 +46,4 @@ def new_task(user: str, title: str, content: str, active: bool = True) -> str:
             "date": datetime.now(),
         }
     )
-    return new['slug']
+    return slug

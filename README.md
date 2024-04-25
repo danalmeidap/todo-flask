@@ -24,15 +24,15 @@
 
 ### Clone or download repository and use docker to build Dockerfile
 
-'''docker build -t tasks .'''
+    '''docker build -t tasks .'''
 
 ### Run the docker-compose.yml using
 
-'''docker-compose up'''
+    '''docker-compose up'''
 
 ### Go to app folder and uses for localhost operations
 
-'''flask run --debug''''
+    '''flask run --debug''''
 
 ### To use cli command bellow and will shows the operations
-'''flask tasks'''
+    '''flask tasks'''
