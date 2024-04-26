@@ -15,7 +15,7 @@
 ## Features
 - [x] Add a task 
 - [x] Lists tasks 
-- [x] Get task by id
+- [x] Get task by slug
 - [x] Get tasks by user
 - [x] Add, list, update and delete a task using cli
 - [x] Only authenticated users can add tasks

@@ -50,5 +50,6 @@ def delete(slug):
         return {"msg":"Task deleted"}
     return abort(404, "Task not found")
 
+
 def configure(app):
     app.register_blueprint(bp)
